@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'djoser',
     'core',
     'tasks',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,7 +85,7 @@ DATABASES = {
         'NAME': 'to_do',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'ahmed013012011'
+        'PASSWORD': '******************'
     }
 }
 
@@ -145,3 +147,5 @@ DJOSER = {
         'user_create': 'core.serializers.UserCreateSerializer',
     },
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
