@@ -1,2 +1,2 @@
-pipfile
-pipfile.lock  
+
+*.pyc

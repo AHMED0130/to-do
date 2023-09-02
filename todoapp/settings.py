@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'to_do',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': '******************'
+        'PASSWORD': '***************'
     }
 }
 
