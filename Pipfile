@@ -10,6 +10,7 @@ djoser = "*"
 djangorestframework-simplejwt = "*"
 mysqlclient = "*"
 django-cors-headers = "*"
+pillow = "*"
 
 [dev-packages]
 
