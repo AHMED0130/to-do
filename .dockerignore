@@ -1,0 +1,7 @@
+venv/
+dist/
+mydatabase
+README.md
+to_do.egg-info/
+setup.py
+Dockerfile

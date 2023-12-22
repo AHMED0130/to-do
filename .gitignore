@@ -1,4 +1,6 @@
 
 *.pyc
- .vscode/
- venv/
+.vscode/
+venv/
+mydatabase
+setup.py
