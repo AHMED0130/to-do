@@ -1,6 +1,6 @@
-
+dist/
+to_do.egg-info/
 *.pyc
 .vscode/
 venv/
 mydatabase
-setup.py
