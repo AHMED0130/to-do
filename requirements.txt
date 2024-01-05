@@ -29,3 +29,4 @@ sqlparse==0.4.4
 tzdata==2023.3
 urllib3==2.1.0
 virtualenv==20.25.0
+mysqlclient==2.2.1
