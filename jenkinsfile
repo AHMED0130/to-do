@@ -1,39 +1,33 @@
 pipeline {
     agent any
     stages {
-        stage('inital')
-        {
-            steps {
-               script {
-                jv = load "script.groovy"
-               }
-            }
-        }
-        stage('Build image') 
-        {
+        stage('inital') {
             steps {
                 script {
-                        jv.buildApp()
-                    }
+                    jv = load "script.groovy"
                 }
-        }
-        
-        stage('Test') 
-        {
-            steps {
-                script {
-                        jv.testApp()
-                    }
             }
         }
-        stage('Deploy') 
-        {
+        stage('Build image') {
             steps {
                 script {
-                        jv.deployApp()
-                    }
+                    jv.buildApp()
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    jv.testApp()
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    jv.deployApp()
+                }
             }
         }
     }
-
 }
