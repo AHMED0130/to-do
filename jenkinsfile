@@ -4,8 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh ' echo "build the app"! '
-                sh 'pip --version '
-                sh 'python3 --version'
             }
         }
         stage('Test') {
