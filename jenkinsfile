@@ -9,28 +9,31 @@ pipeline {
                }
             }
         }
-        stage('Build image') {
+        stage('Build image') 
+        {
             steps {
                 script {
-                    sh 'echo "build the app"'
-                    withCredentials([usernamePassword(credentialsId: 'my-credentials-id', 
-                        usernameVariable: 'USERNAME', passwordVariable: 'PASS')]) {
-                        sh 'docker build -t ahmed0130/todo-app:x3 .'
-                        sh 'echo $PASS | docker login -u $USERNAME --password-stdin'  
-                        sh 'docker push ahmed0130/todo-app:x3'
+                        jv.buildApp()
                     }
                 }
+        }
+        
+        stage('Test') 
+        {
+            steps {
+                script {
+                        jv.testApp()
+                    }
             }
         }
-        stage('Test') {
+        stage('Deploy') 
+        {
             steps {
-                sh 'echo "testing the application" '
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'echo "deploy to linode!"'
+                script {
+                        jv.deployApp()
+                    }
             }
         }
     }
+
 }
