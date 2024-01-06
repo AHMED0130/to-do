@@ -1,24 +1,35 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('inital')
+        {
+            steps {
+               script {
+                jv = load "script.groovy"
+               }
+            }
+        }
+        stage('Build image') {
             steps {
                 script {
-                   script {
-                    sh 'echo "build the app"; sh "pip --version"; sh "python3 --version"'
+                    sh 'echo "build the app"'
+                    withCredentials([usernamePassword(credentialsId: 'my-credentials-id', 
+                        usernameVariable: 'USERNAME', passwordVariable: 'PASS')]) {
+                        sh 'docker build -t ahmed0130/todo-app:x3 .'
+                        sh 'echo $PASS | docker login -u $USERNAME --password-stdin'  
+                        sh 'docker push ahmed0130/todo-app:x3'
+                    }
                 }
-                }
-                
             }
         }
         stage('Test') {
             steps {
-                sh ' echo "run some tests" '
+                sh 'echo "testing the application" '
             }
         }
         stage('Deploy') {
             steps {
-                sh ' echo "deploy to linode!" '
+                sh 'echo "deploy to linode!"'
             }
         }
     }
