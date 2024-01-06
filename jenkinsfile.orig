@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    stages {
+        stage('inital')
+        {
+            steps {
+               script {
+                jv = load "script.groovy"
+               }
+            }
+        }
+        stage('Build image') 
+        {
+            steps {
+                script {
+<<<<<<< HEAD
+                        jv.buildApp()
+=======
+                    sh 'echo "build the app"'
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', 
+                        usernameVariable: 'USERNAME', passwordVariable: 'PASS')]) {
+                        sh 'docker build -t ahmed0130/todo-app:x3 .'
+                        sh 'echo $PASS | docker login -u $USERNAME --password-stdin'  
+                        sh 'docker push ahmed0130/todo-app:x3'
+>>>>>>> 3343ae75255793e8cd7d8dd99cee7c66282a1457
+                    }
+                }
+        }
+        
+        stage('Test') 
+        {
+            steps {
+                script {
+                        jv.testApp()
+                    }
+            }
+        }
+        stage('Deploy') 
+        {
+            steps {
+                script {
+                        jv.deployApp()
+                    }
+            }
+        }
+    }
+
+}
