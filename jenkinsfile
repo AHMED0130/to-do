@@ -3,7 +3,7 @@ pipeline {
     environment {
         IMAGE_NAME = 'ahmed0130/todo-app:1.0-snapshot'
         EC2_INSTANCE_IP = '13.53.187.202'
-        LINODE_INSTANCE_IP='192.46.234.222'
+        LINODE_INSTANCE_IP='172.105.65.131'
     }
     stages {
         stage('Test') {
