@@ -155,4 +155,4 @@ DJOSER = {
 
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '143.42.19.242']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '13.53.187.202']
