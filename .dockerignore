@@ -4,3 +4,5 @@ mydatabase
 README.md
 to_do.egg-info/
 Dockerfile
+jenkinsfile
+dist/
