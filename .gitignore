@@ -4,3 +4,4 @@ to_do.egg-info/
 .vscode/
 venv/
 mydatabase
+*.sqlite3
