@@ -10,8 +10,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        virtualenv venv
-                        . .env/bin/activate
+                        . /var/jenkins_home/workspace/todo/venv/bin/activate
                         pip install -r requirements/preinstall.txt
                         python manage.py migrate 
                         pytest
