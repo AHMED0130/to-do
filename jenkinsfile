@@ -51,30 +51,32 @@ pipeline {
             environment {
             AWS_ACCESS_KEY_ID = credentials('aws_access_key')
             AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
+            TF_VAR_env_prefix = "test"
                 }
             steps {
                 script {
-                                       
-                    def terraformOutput = sh(script: "terraform init && terraform apply -auto-approve -no-color", returnStdout: true).trim()
-                   
-                    def publicIp = terraformOutput =~ /public_ip\s*=\s*"([^"]+)"/
-                    if (publicIp) {
-                        
-                        env.PUBLIC_IP = publicIp[0][1]
-                    } else {
-                        error "Failed to extract public IP address from Terraform output"
+                    dir('terraform') {                   
+                        sh "terraform init"
+                        sh "terraform apply -auto-approve"
+                        EC2_PUBLIC_IP = sh(
+                            script: "terraform ouput public_ip"
+                            returnStdout : true             
+                        ).trim()   
                     }
                 }
             }
         }
-
+        
         stage('Deploy to aws') {
             steps {
                 script {
+                    echo "waiting for initalizing process"
+                    sleep(time: 90 ,unit: "SECONDS")
+
                     echo "deploying the application to ec2 instance............"
                     def dockercmd = "docker run -d -p 8000:8000  ${IMAGE_NAME}"
                     sshagent(['store-server-key']) {
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@${PUBLIC_IP} ${dockercmd}"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@${EC2_PUBLIC_IP} ${dockercmd}"
                     }
                 }
             }

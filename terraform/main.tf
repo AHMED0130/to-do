@@ -2,8 +2,9 @@ provider "aws" {
   region = "eu-north-1"  
 }
 
+
 resource "aws_security_group" "example" {
-  name        = "store-security-group"
+  name        = var.security-group-name
   description = "Example security group for EC2 instance"
   
   
@@ -44,14 +45,17 @@ data "aws_ami" "this" {
 
 
 
-
 resource "aws_instance" "server" {
   ami                          = data.aws_ami.this.id
   associate_public_ip_address  = true
-  instance_type                = "t3.micro"
-  key_name                     = "store-server-key"
+  instance_type                = var.instance-type
+  key_name                     = var.key-name
   security_groups = [aws_security_group.example.name]
   user_data = file("script.sh")
+  
+  tags = {
+    environment = "${var.env_prefix}-env"
+  }
                
 }
 

@@ -5,6 +5,7 @@ to_do.egg-info/
 venv/
 mydatabase
 *.sqlite3
+.pytest_cache
 #the providers
 .terraform/*
 
@@ -12,5 +13,6 @@ mydatabase
 *.tfvars
 
 #the terraform state files 
-*.tfstate
-*.tfstate.*
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform/*

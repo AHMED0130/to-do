@@ -8,10 +8,5 @@ Dockerfile
 jenkinsfile
 dist/
 *.sqlite3
-.terraform/*
-*.tfvars
-*.lock.hcl
-*.tfstate
-*.tfstate.*
-*.tf
-*.sh
+terraform/*
+.gitigonre
