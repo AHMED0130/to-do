@@ -1,5 +1,6 @@
-venv/
-dist/
+venv/*
+dist/*
+.pytest_cache/*
 mydatabase
 README.md
 to_do.egg-info/
@@ -7,13 +8,10 @@ Dockerfile
 jenkinsfile
 dist/
 *.sqlite3
-#the providers
 .terraform/*
-
-#the terraform variables files
 *.tfvars
-
-#the terraform state files 
+*.lock.hcl
 *.tfstate
 *.tfstate.*
 *.tf
+*.sh
