@@ -21,12 +21,12 @@ pipeline {
             steps {
                 script {
                     echo "test the application....."
-                    sh '''#!/bin/bash
-                        source venv/bin/activate &&
-                        pip install -r requirements.txt &&
-                        python manage.py migrate &&
+                    sh """
+                        . /var/jenkins_home/workspace/${JOB_NAME}/venv/bin/activate
+                        pip install -r requirements.txt
+                        python manage.py migrate 
                         pytest
-                    '''
+                    """
                 }
            }
         }
