@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    echo "test the application......"
+                    echo "test the application....."
                     sh '''#!/bin/bash
                         source venv/bin/activate &&
                         pip install -r requirements.txt &&
