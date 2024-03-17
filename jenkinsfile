@@ -21,15 +21,16 @@ pipeline {
             steps {
                 script {
                     echo "test the application......"
-                    sh """
-                        . /var/jenkins_home/workspace/todo/venv/bin/activate
-                        pip install -r requirements.txt
-                        python manage.py migrate 
+                    sh '''#!/bin/bash
+                        source venv/bin/activate &&
+                        pip install -r requirements.txt &&
+                        python manage.py migrate &&
                         pytest
-                    """
+                    '''
                 }
-            }
+           }
         }
+
 
         stage('Build image') {
             steps {
