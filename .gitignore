@@ -5,3 +5,12 @@ to_do.egg-info/
 venv/
 mydatabase
 *.sqlite3
+#the providers
+.terraform/*
+
+#the terraform variables files
+*.tfvars
+
+#the terraform state files 
+*.tfstate
+*.tfstate.*
