@@ -16,3 +16,4 @@ mydatabase
 terraform/*.tfstate
 terraform/*.tfstate.*
 terraform/.terraform/*
+*.txt

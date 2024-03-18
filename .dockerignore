@@ -10,3 +10,4 @@ dist/
 *.sqlite3
 terraform/*
 .gitigonre
+*.txt
