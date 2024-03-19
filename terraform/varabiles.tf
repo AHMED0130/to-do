@@ -1,5 +1,5 @@
 variable "security-group-name" {
-  default = "store-security-group"
+  default = "todo-security-group"
   
 }
 
@@ -8,7 +8,7 @@ variable "instance-type" {
 }
 
 variable "key-name" {
-  default = "store-server-key"
+  default = "todo-server-key"
 }
 
 variable "env_prefix" {
