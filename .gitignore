@@ -6,14 +6,5 @@ venv/
 mydatabase
 *.sqlite3
 .pytest_cache
-#the providers
-.terraform/*
-
-#the terraform variables files
-*.tfvars
-
-#the terraform state files 
-terraform/*.tfstate
-terraform/*.tfstate.*
 terraform/.terraform/*
 *.txt
