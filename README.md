@@ -14,11 +14,11 @@ This project is a **simple yet robust To-Do REST API** built with **Django and D
 
 ```
 project/
-├── core/                   # Django project settings
+├── core/                  
 ├── tasks/                  # App with models, views, serializers
 │   ├── models.py           # Task and Note models
 │   └── views.py            # ViewSets for APIs
-├── todoapp/                # Django app configuration
+├── todoapp/                # Django project settings
 ├── .dockerignore           # Docker ignore file
 ├── .gitignore              # Git ignore file
 ├── Dockerfile              # Docker build configuration
