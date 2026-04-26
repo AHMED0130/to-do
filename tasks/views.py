@@ -7,7 +7,7 @@ from .serializers import TaskSerializer,NoteSerializer
 
 class TaskViewSet(ModelViewSet):
     serializer_class = TaskSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Task.objects.filter(user_id=self.request.user.id)
@@ -17,7 +17,7 @@ class TaskViewSet(ModelViewSet):
 
 class NoteViewSet(ModelViewSet):
     serializer_class=NoteSerializer
-    #permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticated]
 
     def get_queryset(self):
         return Note.objects.filter(user_id=self.request.user.id)
